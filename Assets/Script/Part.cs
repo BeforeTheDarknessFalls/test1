@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Part : MonoBehaviour
 {
@@ -12,12 +13,39 @@ public class Part : MonoBehaviour
     float wTime = 0;
     Action<int> callBack = null;
     public bool isLoad;
+    public Image[] imgs;
     // Start is called before the first frame update
     void Start()
     {
         if(Ani == null){
             InitAni();
         }   
+    }
+    /// <summary>
+    /// 设置图片
+    /// </summary>
+    /// <param name="texs">所有图片</param>
+    /// <param name="index">当前已设置的位置</param>
+    /// <returns></returns>
+    public int SetPictures(List<Texture2D> texs,int index)
+    {
+        if (imgs == null) return index;
+        if (imgs.Length==0) return index;
+        for (int i=0;i< imgs.Length;i++)
+        {
+            int temp = index + 1;
+            if (temp >= texs.Count)
+            {
+                temp = UnityEngine.Random.Range(0, texs.Count-1);
+            }
+            else
+            {
+                index = temp;
+            }
+            Texture2D text = texs[temp];
+            imgs[i].sprite = Sprite.Create(text, new Rect(0, 0, text.width, text.height), Vector2.zero);
+        }
+        return index;
     }
 
     void InitAni()

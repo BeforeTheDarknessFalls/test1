@@ -44,8 +44,20 @@ public class PartManager : MonoBehaviour
             parts[i].PartID = i;
             partDict.Add(i, parts[i]);
         }
-        PlayInOrder(0);
     }
+    /// <summary>
+    /// 设置并开始展示
+    /// </summary>
+    /// <param name="texs">需要展示的图片</param>
+    public void ShowNewPics(List<Texture2D> texs)
+    {
+        int index = 0;
+        foreach(Part part in parts)
+        {
+            index = part.SetPictures(texs,index);
+        }
+        PlayInOrder(0);
+    } 
 
     // Update is called once per frame
     void Update()
