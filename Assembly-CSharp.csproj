@@ -52,10 +52,13 @@
     <UnityVersion>2020.1.0f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Showing.cs" />
+    <Compile Include="Assets\Script\Part.cs" />
     <Compile Include="Assets\Script\ShowCtro.cs" />
     <Compile Include="Assets\Script\Move.cs" />
+    <Compile Include="Assets\Script\PartManager.cs" />
     <Compile Include="Assets\Script\Ctro_Ani.cs" />
-    <Compile Include="Assets\Script\Showing.cs" />
+    <Compile Include="Assets\Script\GetWebPicture.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
